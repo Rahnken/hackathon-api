@@ -10,7 +10,13 @@ import { Request, Response, NextFunction } from "express";
 import indexRouter from "./routes/index";
 import apiRouter from "./routes/api";
 
+import "dotenv/config";
+
+const connectDB = require("./config/db");
+
 const app = express();
+
+connectDB();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
